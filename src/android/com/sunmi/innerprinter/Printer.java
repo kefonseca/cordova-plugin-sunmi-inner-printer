@@ -230,6 +230,9 @@ public class Printer extends CordovaPlugin {
       } else if (action.equals("cutPaper")) {
         cutPaper(callbackContext);
         return true;
+      } else if (action.equals("scan")){
+          scan();
+          return true;
       }
 
       return false;
@@ -907,5 +910,14 @@ public class Printer extends CordovaPlugin {
             e.printStackTrace();
         }
         sunmiPrinter = ret?FoundSunmiPrinter:NoSunmiPrinter;
+    }
+
+    public void scan() {
+     try {
+
+                    scanInterface.scan();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
     }
 }
